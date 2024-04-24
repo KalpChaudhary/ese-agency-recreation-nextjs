@@ -38,7 +38,7 @@ function LandingPage() {
         const canvas = canvasRef.current;
         // @ts-ignore
         const context = canvas.getContext("2d");
-        const frameIndex = Math.min(Math.floor(playhead.current.frame), frameCount - 1);
+        const frameIndex = Math.min(Math.floor(playhead.current.frame) + 1, frameCount - 1);
         const frameNumber = frameIndex.toString().padStart(2, '0');
         const imageUrl = `/images/ese-hero-sequence${frameNumber}.webp`;
         const image = new Image();
@@ -46,11 +46,7 @@ function LandingPage() {
         image.onload = () => {
             context.drawImage(image, 0, 0);
         };
-
     };
-
-
-
 
     useEffect(() => {
         if (!imageLoaded) return;
@@ -66,9 +62,14 @@ function LandingPage() {
         };
 
         const render = () => {
-            renderFrame();
-            updatePlayhead();
-            requestAnimationFrame(render);
+            if (playhead.current.frame >= frameCount - 1) {
+                // Stop the animation at the last frame
+                playhead.current.frame = frameCount - 1;
+            } else {
+                renderFrame();
+                updatePlayhead();
+                requestAnimationFrame(render);
+            }
         };
 
         render();
