@@ -2,7 +2,7 @@
 import React, { useRef } from 'react'
 import styles from './TitleSlide.module.scss'
 import { motion } from 'framer-motion'
-import { titleAnimation } from './anime'
+import { textReveal, titleAnimation } from './anime'
 import { gsap } from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
@@ -54,11 +54,11 @@ function TitleSlide() {
         <>
 
             <div className={styles.titleWrapper} >
-                <div className={styles.subtitle}>
-                    <span>modern</span>
-                    <span>highquality</span>
-                    <span>fresh</span>
-                </div>
+                <motion.div variants={textReveal} initial="initial" animate="enter" className={styles.subtitle}>
+                    <motion.span variants={textReveal}>modern</motion.span>
+                    <motion.span variants={textReveal}>highquality</motion.span >
+                    <motion.span variants={textReveal}>fresh</motion.span >
+                </motion.div>
                 <motion.div variants={titleAnimation} initial="initial" animate="animate" ref={slider} className={styles.title}>
                     <div ref={firstSlider} className={styles.slider}>
                         <motion.span variants={titleAnimation}>Overtake</motion.span>

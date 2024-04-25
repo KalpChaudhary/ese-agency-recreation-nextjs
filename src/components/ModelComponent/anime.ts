@@ -56,3 +56,26 @@ export const contentReveal = (isModelHovered: boolean) => {
         },
   };
 };
+
+export const modelOpacity = (isModelHovered: boolean) => {
+  return {
+    initial: {
+      opacity: 0,
+    },
+    enter: isModelHovered
+      ? {
+          opacity: 0.7,
+          transition: {
+            duration: 1.5,
+            ease: [0.25, 0.74, 0.22, 0.99],
+          },
+        }
+      : {
+          opacity: 0,
+          transition: {
+            duration: 0.3,
+            ease: [0.25, 0.74, 0.22, 0.99],
+          },
+        },
+  };
+};
