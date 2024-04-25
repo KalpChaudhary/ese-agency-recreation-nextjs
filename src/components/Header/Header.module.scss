@@ -2,7 +2,7 @@
   width: 100%;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -11,14 +11,16 @@
 
 .logoWrapper {
   overflow: hidden;
+  height: 40px;
 }
 
 .logo {
   cursor: pointer;
+
   position: relative;
   font-size: 1.8vw;
   font-weight: 500;
-  transform: translateY(50%);
+  top: 100%;
 }
 
 .navList {
@@ -28,6 +30,7 @@
   padding: 0;
   margin: 0;
   gap: 2rem;
+
   overflow: hidden;
   height: 20px;
 
@@ -48,12 +51,11 @@
   }
 }
 
-.headerModel {
-  position: fixed;
-  top: 0%;
-  left: 0;
+.navItem {
+  display: flex;
+  flex-direction: row;
   width: 100%;
-  //   height: 50vh;
-  background-color: #1e1e20;
-  z-index: 999;
+  justify-content: start;
+  align-items: end;
+  //   gap: 1rem;
 }

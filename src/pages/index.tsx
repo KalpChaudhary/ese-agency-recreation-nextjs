@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import LandingPage from "@/components/LandingPage";
 import WorkSummary from "@/components/WorkSummary";
 import { useEffect } from "react";
+import TitleSlide from "@/components/TitleSlide";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -29,6 +30,7 @@ export default function Home() {
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
         <LandingPage />
+        <TitleSlide />
         <WorkSummary />
       </main>
     </>

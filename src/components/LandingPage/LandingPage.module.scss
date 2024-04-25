@@ -1,9 +1,14 @@
 .canvasWrapper {
   pointer-events: none;
-  position: sticky;
+  position: fixed;
   width: 100%;
   height: 100vh;
   top: 0;
+  display: flex;
+}
+
+.title {
+  align-self: flex-end;
 }
 
 .canvasTarget {
