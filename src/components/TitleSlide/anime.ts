@@ -8,6 +8,7 @@ export const titleAnimation = {
     opacity: 1,
     transition: {
       duration: 2,
+
       ease: [0.25, 0.74, 0.22, 0.99],
       staggerChildren: 0.3,
     },
@@ -25,6 +26,7 @@ export const textReveal = {
     transition: {
       duration: 1.5,
       ease: [0.25, 0.74, 0.22, 0.99],
+
       staggerChildren: 0.8,
     },
   },

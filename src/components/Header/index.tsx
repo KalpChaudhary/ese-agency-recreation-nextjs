@@ -4,9 +4,13 @@ import styles from './Header.module.scss'
 import { motion } from 'framer-motion'
 import { textReveal, logoReveal, NavItemHover } from "./anime"
 import ModelComponent from '@/components/ModelComponent';
+import { useRouter } from 'next/router';
+import Link from 'next/link';
+
 
 
 function Header() {
+
 
     const [isModelActive, setIsModelActive] = useState(false)
 
@@ -52,22 +56,26 @@ function Header() {
 export default Header
 
 //refractored version of NavItem component
-const NavItem = ({ label, onHover, hover }: { label: string, onHover: any, hover: object }) => (
-    <motion.div className={styles.navItem} onMouseEnter={onHover} variants={textReveal} whileHover={hover}>
-        <div>
-            <span>{label}</span>
-            <span>{label}</span>
-        </div>
+const NavItem = ({ label, onHover, hover }: { label: string, onHover: any, hover: object }) => {
+    const router = useRouter();
+    return (
+        <motion.div className={styles.navItem} onMouseEnter={onHover} variants={textReveal} whileHover={hover}>
+            <div onClick={() => router.push(`/${label.toLocaleLowerCase() === "home" ? "" : label.toLocaleLowerCase()}`)}>
+                <span>{label}</span>
+                <span>{label}</span>
+            </div>
 
-        {/* TODO: Add arrow down icon if navitem is Expertise  */}
-        {/* {
-            label === "Expertise" && (
-                <div>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="6.708" height="7.274" viewBox="0 0 6.708 7.274">
-                        <path d="M4.092,6.969,6.708,4.353,6,3.646l-2.147,2.1V0h-1V5.793L.707,3.647,0,4.354,2.616,6.969a1.045,1.045,0,0,0,1.476,0" fill="currentColor"></path>
-                    </svg>
-                </div>
-            )} */}
-    </motion.div>
-);
+            {/* TODO: Add arrow down icon if navitem is Expertise  */}
+            {/* {
+                label === "Expertise" && (
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="6.708" height="7.274" viewBox="0 0 6.708 7.274">
+                            <path d="M4.092,6.969,6.708,4.353,6,3.646l-2.147,2.1V0h-1V5.793L.707,3.647,0,4.354,2.616,6.969a1.045,1.045,0,0,0,1.476,0" fill="currentColor"></path>
+                        </svg>
+                    </div>
+                )} */}
+        </motion.div>
+    );
 
+
+}

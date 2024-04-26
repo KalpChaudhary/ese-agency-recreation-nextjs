@@ -6,7 +6,7 @@ import LandingPage from "@/components/LandingPage";
 import WorkSummary from "@/components/WorkSummary";
 import { useEffect } from "react";
 import TitleSlide from "@/components/TitleSlide";
-
+import Inner from "@/components/Inner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,11 +28,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <LandingPage />
-        <TitleSlide />
-        <WorkSummary />
-      </main>
+      <Inner >
+        <>
+          <LandingPage />
+          <TitleSlide />
+          <WorkSummary />
+        </>
+      </Inner>
     </>
   );
 }
