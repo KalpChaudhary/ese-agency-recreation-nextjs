@@ -5,8 +5,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react"
 import styles from "./LandingPage.module.scss"
 import { useGSAP } from "@gsap/react";
 
-// gsap.registerPlugin(ScrollTrigger);
 const preloadImages = async () => {
+
     const frameCount = 49;
     const baseUrl = "/images/ese-hero-sequence"; // Replace with the actual base URL
     const loadSingleImage = (index: number) =>
@@ -21,17 +21,21 @@ const preloadImages = async () => {
 
 function LandingPage() {
 
+
     const canvasRef = useRef(null)
     const frameCount = 49;
     const playhead = useRef({ frame: 0 });
     const [imageLoaded, setImageLoaded] = useState(false);
 
 
+
+
+
     useLayoutEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
         preloadImages()
         setImageLoaded(true)
-    }, []);
+    }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
 
     const renderFrame = () => {

@@ -2,28 +2,22 @@ export const slide = (route: string) => {
   return {
     initial: {
       top: "100vh",
+      zIndex: 1000,
 
       // opacity: 0
     },
     enter: {
       top: "100vh",
+      zIndex: 1000,
     },
-    exit:
-      route !== "/"
-        ? {
-            top: "0",
-            transition: {
-              duration: 1,
-              ease: [0.25, 0.74, 0.22, 0.99],
-            },
-          }
-        : {
-            top: "100vh",
-            transition: {
-              duration: 1,
-              ease: [0.25, 0.74, 0.22, 0.99],
-            },
-          },
+    exit: {
+      top: "0",
+      zIndex: 990,
+      transition: {
+        duration: 1,
+        ease: [0.25, 0.74, 0.22, 0.99],
+      },
+    },
   };
 };
 
