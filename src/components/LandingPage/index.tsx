@@ -85,7 +85,7 @@ function LandingPage() {
     useGSAP(() => {
         ScrollTrigger.create({
             start: "top top",
-            end: "bottom bottom",
+            end: "+=100%",
             scrub: true,
             onUpdate: (self) => {
                 playhead.current.frame = (1 - self.progress) * (frameCount - 1);
@@ -94,6 +94,7 @@ function LandingPage() {
         });
 
     })
+
 
 
     return (
