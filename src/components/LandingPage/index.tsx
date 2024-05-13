@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 
 const preloadImages = async () => {
 
-    const frameCount = 49;
+    const frameCount = 48;
     const baseUrl = "/images/ese-hero-sequence"; // Replace with the actual base URL
     const loadSingleImage = (index: number) =>
         new Promise(resolve => {
@@ -23,7 +23,7 @@ function LandingPage() {
 
 
     const canvasRef = useRef(null)
-    const frameCount = 49;
+    const frameCount = 48;
     const playhead = useRef({ frame: 0 });
     const [imageLoaded, setImageLoaded] = useState(false);
 

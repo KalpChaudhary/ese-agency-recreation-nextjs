@@ -1,78 +1,22 @@
 "use client";
-import React, { useRef } from 'react'
 import styles from './TitleSlide.module.scss'
 import { motion } from 'framer-motion'
 import { textReveal, titleAnimation } from './anime'
-import { gsap } from 'gsap';
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import ParallaxText from '../ParallaxText';
 
 function TitleSlide() {
-    const slider = useRef(null);
-    const firstSlider = useRef(null);
-    const secondSlider = useRef(null);
-    let xPercent = 0;
-    let direction = -1;
 
-    // Define a ref to keep track of the baseSpeed
-    const baseSpeedRef = useRef(0.05);
 
-    gsap.registerPlugin(useGSAP);
-
-    //slider movement
-    useGSAP(() => {
-        // gsap code here...
-        gsap.registerPlugin(ScrollTrigger);
-
-        // gsap.to(slider.current, {
-
-        //     x: "-500px"
-        // })
-        requestAnimationFrame(animate);
-    }); // <-- scope is for selector text (optional)
-
-    //slider movement
-    const animate = () => {
-        // Access the current speed from the ref
-        const currentSpeed = baseSpeedRef.current;
-        // console.log(currentSpeed)
-
-        if (!firstSlider.current || !secondSlider.current) return;
-
-        if (xPercent < -100) {
-            xPercent = 0;
-        }
-        else if (xPercent > 0) {
-            xPercent = -100;
-        }
-        gsap.set(firstSlider.current, { xPercent: xPercent })
-        gsap.set(secondSlider.current, { xPercent: xPercent })
-        xPercent += currentSpeed * direction;
-        requestAnimationFrame(animate);
-    }
     return (
         <>
-
             <div className={styles.titleWrapper} >
                 <motion.div variants={textReveal} initial="initial" animate="enter" className={styles.subtitle}>
                     <motion.span variants={textReveal}>modern</motion.span>
                     <motion.span variants={textReveal}>highquality</motion.span >
                     <motion.span variants={textReveal}>fresh</motion.span >
                 </motion.div>
-                <motion.div variants={titleAnimation} initial="initial" animate="animate" ref={slider} className={styles.title}>
-                    <div ref={firstSlider} className={styles.slider}>
-                        <motion.span variants={titleAnimation}>Overtake</motion.span>
-                        <motion.span variants={titleAnimation}>time</motion.span>
-                        <motion.span variants={titleAnimation}>with</motion.span>
-                        <motion.span variants={titleAnimation}>us</motion.span>
-                    </div>
-                    <div ref={secondSlider} className={styles.slider}>
-                        <motion.span variants={titleAnimation}>Overtake</motion.span>
-                        <motion.span variants={titleAnimation}>time</motion.span>
-                        <motion.span variants={titleAnimation}>with</motion.span>
-                        <motion.span variants={titleAnimation}>us</motion.span>
-                    </div>
-
+                <motion.div variants={titleAnimation} initial="initial" animate="animate" className={styles.title}>
+                    <ParallaxText baseVelocity={-4}>Overtake time with us</ParallaxText>
                 </motion.div>
             </div >
         </>
