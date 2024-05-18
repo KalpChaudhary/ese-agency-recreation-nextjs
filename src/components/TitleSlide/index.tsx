@@ -15,6 +15,7 @@ function TitleSlide() {
                     <motion.span variants={textReveal}>highquality</motion.span >
                     <motion.span variants={textReveal}>fresh</motion.span >
                 </motion.div>
+                {/* TODO: animate each word using textreveal fn */}
                 <motion.div variants={titleAnimation} initial="initial" animate="animate" className={styles.title}>
                     <ParallaxText baseVelocity={-4}>Overtake time with us</ParallaxText>
                 </motion.div>
