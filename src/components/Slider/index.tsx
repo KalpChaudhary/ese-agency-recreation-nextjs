@@ -65,6 +65,8 @@ function Slider() {
     };
 
 
+
+
     useEffect(() => {
         const progressBarList = progressBarListRef.current;
         const sliderContainer = containerRef.current;
@@ -76,7 +78,7 @@ function Slider() {
             onEnter: () => {
                 gsap.to(progressBarList, {
                     position: 'fixed',
-                    top: '83.5%',
+                    top: '92%',
                     duration: 0
 
                 });
@@ -84,21 +86,21 @@ function Slider() {
             onLeaveBack: () => {
                 gsap.to(progressBarList, {
                     position: 'absolute',
-                    top: '12%',
+                    top: '13.2%',
                     duration: 0
                 });
             },
             onLeave: () => {
                 gsap.to(progressBarList, {
                     position: 'absolute',
-                    top: '97.6%',
+                    top: '98.9%',
                     duration: 0
                 });
             },
             onEnterBack: () => {
                 gsap.to(progressBarList, {
                     position: 'fixed',
-                    top: '83.5%',
+                    top: '92%',
                     duration: 0
                 });
             }
@@ -122,11 +124,14 @@ function Slider() {
             <div className={styles.stickyContainer}>
                 <div ref={sliderListRef} className={styles.sliderList}>
                     {[1, 2, 3, 4, 5].map((item, index) => (
+
                         <motion.div initial="initial"
                             animate={index === activeIndex ? "visible" : "hidden"}
                             variants={generateVariants(index)} key={index} className={styles.slider}>
-                            <h1>Item {item}</h1>
+                            <Image alt='slider images' src={`/images/slider${index + 1}.jpg`} layout="fill" objectFit="cover" />
                         </motion.div>
+
+
                     ))}
                 </div>
             </div>
@@ -134,9 +139,10 @@ function Slider() {
                 {[1, 2, 3, 4, 5].map((item, index) => (
                     <div key={index} className={`${styles.progressBarWrapper}`}>
                         <div
-                            className={`${styles.progressBar} ${index === activeIndex ? styles.active : ""}`}
+                            className={`${styles.progressBar} ${index === activeIndex ? styles.active : ""} ${index < activeIndex ? styles.past : ""}`}
                             style={{
-                                width: `${calculateProgressForSlider(index) * 100}%`
+                                width: `${calculateProgressForSlider(index) * 100}%`,
+
                             }}
                         ></div>
                     </div>

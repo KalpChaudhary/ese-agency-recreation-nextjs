@@ -8,19 +8,14 @@ import { useEffect } from "react";
 import TitleSlide from "@/components/TitleSlide";
 import Inner from "@/components/Inner";
 import Slider from "@/components/Slider";
-import Footer from "@/components/Footer";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
-
   //initialize locomotive-scroll
   useEffect(() => {
     import("locomotive-scroll").then(locomotiveModule => {
       const scroll = new locomotiveModule.default()
     })
   }, [])
-
 
   return (
     <>
@@ -36,7 +31,6 @@ export default function Home() {
           <TitleSlide />
           <WorkSummary />
           <Slider />
-          <Footer />
         </>
       </Inner>
     </>

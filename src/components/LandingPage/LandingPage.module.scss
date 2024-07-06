@@ -1,7 +1,7 @@
 .canvasWrapper {
   pointer-events: none;
   position: fixed;
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   top: 0;
   // display: flex;
@@ -31,8 +31,9 @@
     object-fit: cover;
     vertical-align: baseline;
     display: inline-block;
-    aspect-ratio: auto 2500/1355;
+    aspect-ratio: auto 2500 / 1300;
     overflow-clip-margin: content-box;
     overflow: clip;
   }
 }
+/* LandingPage.module.scss */
