@@ -33,9 +33,9 @@ function LandingPage() {
         const canvas = canvasRef.current;
         if (!canvas) return;
         const context = canvas.getContext("2d");
-        if (!context) return;
+        if (!context) return;   
 
-        const frameIndex = Math.max(Math.floor(playhead.current.frame), 0);
+        const frameIndex = Math.max(Math.floor(playhead.current.frame), 1);
         const frameNumber = frameIndex.toString().padStart(3, "");
         const imageUrl = `/image_sequence/${frameNumber}.webp`;
         const image = new Image();

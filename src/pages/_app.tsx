@@ -8,9 +8,9 @@ export default function App({ Component, pageProps, router }: AppProps) {
   return (
     <div>
       <Header />
-      <AnimatePresence mode="wait">
-        <Component key={router.route} {...pageProps} />
-      </AnimatePresence>
+      {/* <AnimatePresence mode="wait"> */}
+      <Component key={router.route} {...pageProps} />
+      {/* </AnimatePresence> */}
       <Footer />
     </div>
   );

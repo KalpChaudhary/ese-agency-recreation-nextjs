@@ -1,4 +1,3 @@
-"use client";
 import styles from './TitleSlide.module.scss'
 import { motion } from 'framer-motion'
 import { textReveal, titleAnimation } from './anime'

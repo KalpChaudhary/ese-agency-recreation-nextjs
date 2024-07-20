@@ -17,7 +17,7 @@ function Header() {
     const menuItems = [
         { name: 'Home', modelActive: false },
         { name: 'Work', modelActive: false },
-        { name: 'Expertise', modelActive: true }, // Note the corrected spelling of 'Expertise'
+        { name: 'Expertise', modelActive: true },
         { name: 'Agency', modelActive: false },
         { name: 'Jobs', modelActive: false },
         { name: 'Contact', modelActive: false }
@@ -30,7 +30,7 @@ function Header() {
             }} >
                 <div className={styles.logoWrapper}>
                     <motion.div variants={logoReveal} onAnimationComplete={() => console.log("anime completed")} initial="inital" animate="enter" className={styles.logo}>
-                        <span >ese agency</span>
+                        <span >xyz agency</span>
                     </motion.div>
                 </div>
                 <div className={styles.nav}>
